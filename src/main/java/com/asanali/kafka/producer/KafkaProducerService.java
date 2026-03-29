@@ -1,4 +1,4 @@
-package com.asanali.service;
+package com.asanali.kafka.producer;
 
 
 import lombok.RequiredArgsConstructor;

@@ -20,14 +20,11 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
     implementation("org.springframework.kafka:spring-kafka")
+    implementation ("org.springframework.boot:spring-boot-starter-mail")
 
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
-
-    runtimeOnly("org.postgresql:postgresql:42.7.2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

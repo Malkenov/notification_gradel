@@ -16,4 +16,13 @@ public class KafkaTopicConfig {
                 .replicas(1)    // солько копии
                 .build();
     }
+
+    @Bean
+    public NewTopic ticketCancelledTopic(){
+        return TopicBuilder
+                .name("ticket-cancelled")
+                .partitions(1)
+                .replicas(1)
+                .build();
+    }
 }

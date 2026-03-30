@@ -1,7 +1,6 @@
 package com.asanali.controller;
 
 import com.asanali.kafka.dto.KafkaPurchasedDto;
-import com.asanali.kafka.producer.KafkaProducerService;
 import com.asanali.kafka.producer.KafkaPurchasedProducer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

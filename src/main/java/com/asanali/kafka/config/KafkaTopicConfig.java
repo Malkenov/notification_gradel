@@ -25,4 +25,13 @@ public class KafkaTopicConfig {
                 .replicas(1)
                 .build();
     }
+
+    @Bean
+    public NewTopic movieReminder(){
+        return TopicBuilder
+                .name("movie-reminder")
+                .partitions(1)
+                .replicas(1)
+                .build();
+    }
 }

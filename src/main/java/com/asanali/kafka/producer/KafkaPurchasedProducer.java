@@ -1,4 +1,4 @@
-package com.asanali.kafka.ticket_purchased;
+package com.asanali.kafka.producer;
 
 import com.asanali.kafka.dto.KafkaPurchasedDto;
 import lombok.RequiredArgsConstructor;

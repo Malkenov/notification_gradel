@@ -1,4 +1,4 @@
-package com.asanali.kafka.seat_reservation_expired;
+package com.asanali.kafka.consumer;
 
 import com.asanali.entity.Seat;
 import com.asanali.enums.SeatStatus;
@@ -6,6 +6,7 @@ import com.asanali.kafka.dto.SeatReservationExpiredDto;
 import com.asanali.repository.SeatRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service

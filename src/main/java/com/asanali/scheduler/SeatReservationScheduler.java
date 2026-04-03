@@ -1,8 +1,9 @@
-package com.asanali.kafka.seat_reservation_expired;
+package com.asanali.scheduler;
 
 import com.asanali.entity.Seat;
 import com.asanali.enums.SeatStatus;
 import com.asanali.kafka.dto.SeatReservationExpiredDto;
+import com.asanali.kafka.producer.SeatExpiredProducer;
 import com.asanali.repository.SeatRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -32,7 +33,7 @@ public class SeatReservationScheduler {
             dto.setUserId(seat.getUserId());
             dto.setExpiredAt(LocalDateTime.now());
 
-            producer.send(dto);
+            producer.reminder(dto);
             System.out.println("Найдена истекшая бронь: " + seat.getId());
         }
     }

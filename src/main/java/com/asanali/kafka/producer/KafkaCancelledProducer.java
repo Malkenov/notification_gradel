@@ -1,4 +1,4 @@
-package com.asanali.kafka.ticket_cancelled;
+package com.asanali.kafka.producer;
 
 import com.asanali.kafka.dto.KafkaCancelledDto;
 import lombok.RequiredArgsConstructor;

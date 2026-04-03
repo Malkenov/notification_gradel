@@ -1,4 +1,4 @@
-package com.asanali.kafka.movie_reminder;
+package com.asanali.kafka.producer;
 
 import com.asanali.kafka.dto.MovieReminderDto;
 import lombok.RequiredArgsConstructor;

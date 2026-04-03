@@ -1,5 +1,6 @@
 package com.asanali.kafka.producer;
 
+
 import com.asanali.kafka.dto.SeatReservationExpiredDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;

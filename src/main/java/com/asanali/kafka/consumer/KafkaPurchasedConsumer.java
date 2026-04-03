@@ -1,4 +1,5 @@
-package com.asanali.kafka.consumer;
+package com.asanali.kafka.producer;
+
 
 import com.asanali.kafka.dto.KafkaPurchasedDto;
 import lombok.RequiredArgsConstructor;

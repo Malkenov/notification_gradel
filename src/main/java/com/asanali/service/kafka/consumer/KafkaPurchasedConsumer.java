@@ -21,6 +21,8 @@ public class KafkaPurchasedConsumer {
     public void listen(KafkaPurchasedDto dto){
         log.info("Сообщение " + dto);
 
+
+        try {
     SimpleMailMessage message = new SimpleMailMessage();
     message.setTo(dto.getUserEmail());
     message.setSubject("Билет куплен " + dto.getMovieName());
@@ -32,5 +34,8 @@ public class KafkaPurchasedConsumer {
 
     mailSender.send(message);
         log.info("Сообщение отправлена на адрес " + dto.getUserEmail());
-    }
+    }catch (Exception e) {
+            log.error("Не удалось отправить сообщение на {}: {}", dto.getUserEmail(), e.getMessage());
+        }
+}
 }

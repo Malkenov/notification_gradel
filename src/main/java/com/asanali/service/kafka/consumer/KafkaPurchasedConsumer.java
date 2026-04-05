@@ -3,11 +3,13 @@ package com.asanali.service.kafka.consumer;
 
 import com.asanali.service.kafka.dto.KafkaPurchasedDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class KafkaPurchasedConsumer {
@@ -17,11 +19,11 @@ public class KafkaPurchasedConsumer {
 
     @KafkaListener(topics = "ticket-purchased", groupId = "notification-group")
     public void listen(KafkaPurchasedDto dto){
-        System.out.println("Сообщение " + dto);
+        log.info("Сообщение " + dto);
 
     SimpleMailMessage message = new SimpleMailMessage();
     message.setTo(dto.getUserEmail());
-    message.setSubject("Билет купле " + dto.getMovieName());
+    message.setSubject("Билет куплен " + dto.getMovieName());
     message.setText(
             "Привет " + dto.getUserName() + "!\n\n" +
             "Вы купили билет на " + dto.getMovieName() + "\n" +
@@ -29,6 +31,6 @@ public class KafkaPurchasedConsumer {
     );
 
     mailSender.send(message);
-    System.out.println("Сообщение отправлена на адрес " + dto.getUserEmail());
+        log.info("Сообщение отправлена на адрес " + dto.getUserEmail());
     }
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class SeatReservationExpiredDto {
 
-    private String seatId;         // какое место освободить
+    private Long seatId;         // какое место освободить
     private String movieId;        // какой сеанс
     private String userId;         // кто бронировал
     private LocalDateTime expiredAt; // когда истекло

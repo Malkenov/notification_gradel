@@ -33,7 +33,7 @@ public class KafkaMovieReminderConsumer {
             );
 
             mailSender.send(message);
-            log.error("Сообщение отправлено по адресу {}", dto.getUserEmail());
+            log.info("Сообщение отправлено по адресу {}", dto.getUserEmail());
         } catch (Exception e) {
             log.error("Не удалось отправить сообщение на {}: {}", dto.getUserEmail(), e.getMessage());
         }

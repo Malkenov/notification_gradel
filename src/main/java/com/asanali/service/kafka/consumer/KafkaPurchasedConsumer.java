@@ -19,7 +19,7 @@ public class KafkaPurchasedConsumer {
 
     @KafkaListener(topics = "ticket-purchased", groupId = "notification-group")
     public void listen(KafkaPurchasedDto dto){
-        log.info("Сообщение " + dto);
+        log.info("Сообщение {}", dto);
 
 
         try {
@@ -33,7 +33,7 @@ public class KafkaPurchasedConsumer {
     );
 
     mailSender.send(message);
-        log.info("Сообщение отправлена на адрес " + dto.getUserEmail());
+        log.info("Сообщение отправлена на адрес {}", dto.getUserEmail());
     }catch (Exception e) {
             log.error("Не удалось отправить сообщение на {}: {}", dto.getUserEmail(), e.getMessage());
         }

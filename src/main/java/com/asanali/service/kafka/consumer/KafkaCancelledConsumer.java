@@ -18,10 +18,10 @@ public class KafkaCancelledConsumer {
 
     @KafkaListener(topics = "ticket-cancelled", groupId = "notification-group")
     public void listen(KafkaCancelledDto dto) {
-        System.out.println("Получено сообщение: " + dto);
+        log.info("Получено сообщение: {}", dto);
 
 
-        log.info("Возврат " + dto.getRefundAmount() + " тенге,перевдено успешно!");
+        log.info("Возврат {} тенге, переведено успешно!", dto.getRefundAmount());
 
         try {
             SimpleMailMessage message = new SimpleMailMessage();
@@ -34,7 +34,7 @@ public class KafkaCancelledConsumer {
                             "Сумма возврата " + dto.getRefundAmount() + " тенге\n\n"
             );
             javaMailSender.send(message);
-            log.info("Сообщение отправлено на " + dto.getUserEmail());
+            log.info("Сообщение отправлено на {}", dto.getUserEmail());
         } catch (Exception e) {
             log.error("Не удалось отправить сообщение на {}: {}", dto.getUserEmail(), e.getMessage());
         }

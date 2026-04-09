@@ -31,7 +31,7 @@ public class NewMovieReleasedConsumer {
                             "Кинотеатр: " + dto.getCinemaName()
             );
             mailSender.send(message);
-            log.info("Сообщение отправлена на " + dto.getUserEmail());
+            log.info("Сообщение отправлена на {}", dto.getUserEmail());
         } catch (Exception e) {
             log.error("Не удалось отправить сообщение на {}: {}", dto.getUserEmail(), e.getMessage());
         }

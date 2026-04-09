@@ -1,7 +1,7 @@
 package com.asanali.service.kafka.consumer;
 
 
-import com.asanali.service.kafka.dto.MovieReminderDto;
+import com.asanali.dto.MovieReminderDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -18,7 +18,7 @@ public class KafkaMovieReminderConsumer {
 
     @KafkaListener(topics = "movie-reminder", groupId = "notification")
     public void listen(MovieReminderDto dto) {
-        System.out.println("Сообщение " + dto);
+        log.info("Сообщение {}", dto);
 
 
         try {
@@ -33,7 +33,7 @@ public class KafkaMovieReminderConsumer {
             );
 
             mailSender.send(message);
-            System.out.println("Сообщение отправлено по адресу " + dto.getUserEmail());
+            log.error("Сообщение отправлено по адресу {}", dto.getUserEmail());
         } catch (Exception e) {
             log.error("Не удалось отправить сообщение на {}: {}", dto.getUserEmail(), e.getMessage());
         }

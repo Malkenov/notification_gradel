@@ -1,7 +1,7 @@
 package com.asanali.service.kafka.consumer;
 
 
-import com.asanali.service.kafka.dto.KafkaCancelledDto;
+import com.asanali.dto.KafkaCancelledDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;

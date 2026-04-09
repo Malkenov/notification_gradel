@@ -1,4 +1,4 @@
-package com.asanali.service.kafka.dto;
+package com.asanali.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

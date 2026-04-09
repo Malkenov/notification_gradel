@@ -1,6 +1,6 @@
 package com.asanali.service.kafka.consumer;
 
-import com.asanali.service.kafka.dto.NewMovieReleasedDto;
+import com.asanali.dto.NewMovieReleasedDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -21,7 +21,7 @@ public class NewMovieReleasedConsumer {
 
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(dto.getUserName());
+            message.setTo(dto.getUserEmail());
             message.setSubject("Новый фильм: " + dto.getMovieName());
             message.setText(
                     "Привет " + dto.getUserName() + "!\n\n" +
